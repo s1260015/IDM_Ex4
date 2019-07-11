@@ -1,0 +1,33 @@
+#include <stdio.h>
+#include <stdlib.h>
+#include <time.h>
+
+int main(){
+  int tmp[2],total=0;
+  char name[100];
+
+  printf("What is your name?\n>");
+  scanf("%s",name);
+  printf("Hello,%s!\n\n",name);
+
+  srand(time(NULL));
+  printf("Rolling the dice...\n");
+
+
+  tmp[1]=rand()%6+1;
+
+  for(int i=0;i<2;i++){
+     tmp[i]=rand()%6+1;
+     total+=tmp[i];
+     printf("Die %d: %d\n",i+1,tmp[i]);
+  }
+
+  printf("Total value: %d\n",total);
+
+  if(total>9)printf("%s finishes",name);
+
+  if(total>7)printf("%s won\n",name);
+  else printf("%s lost\n",name);
+
+  return 0;
+}
